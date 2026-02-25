@@ -1,0 +1,118 @@
+AI Grammar Checker Extension - Logic & Design Rules
+=====================================================
+
+## Project Overview
+This Chrome extension provides a simple, user-friendly interface for grammar checking text input using AI technology.
+
+## Design Rules
+
+### 1. User Interface Design
+- Clean, minimal popup layout with white background
+- Modern typography using system fonts (-apple-system, BlinkMacSystemFont, etc.)
+- Consistent spacing and padding throughout the interface
+- Rounded corners (8px border-radius) for text areas and buttons
+- Blue primary color (#4285f4) for main actions
+- Subtle shadows and hover effects for better user experience
+
+### 2. Layout Structure
+- Fixed width: 380px (responsive down to 320px)
+- Minimum height: 500px
+- Header section with title and subtitle
+- Main content area with input/output sections
+- Footer with branding
+- Centered button layout for primary actions
+- Side-by-side layout for secondary actions (Copy/Clear)
+
+### 3. Color Scheme
+- Primary Blue: #4285f4 (Google Blue)
+- Success Green: #34a853 (for gradient effect)
+- Text Colors:
+  - Primary: #1f2937 (dark gray)
+  - Secondary: #374151 (medium gray)
+  - Muted: #6b7280 (light gray)
+  - Placeholder: #9ca3af (very light gray)
+- Background: #ffffff (white)
+- Borders: #e5e7eb (light gray)
+- Readonly backgrounds: #f9fafb (very light gray)
+
+### 4. Typography
+- Font sizes: 24px (title), 16px (buttons), 14px (body), 12px (footer)
+- Font weights: 700 (title), 600 (labels), 500 (buttons), 400 (body)
+- Line height: 1.6 for readability
+
+## Logic Rules
+
+### 1. Grammar Checking Logic
+- Real AI integration using OpenAI's GPT-3.5-turbo model
+- API calls to https://api.openai.com/v1/chat/completions
+- System prompt instructs AI to correct grammar, spelling, punctuation, and clarity
+- User prompt format: "Correct this sentence for grammar and spelling: [text]"
+- Returns only corrected text without explanations
+- Error handling for API failures and invalid responses
+
+### 2. Button States
+- Primary button shows loading state during grammar check
+- Copy button disabled when no corrected text available
+- Clear button always enabled
+- Visual feedback for successful actions (copy confirmation)
+
+### 3. Input Validation
+- Check for empty input before processing
+- Trim whitespace from input
+- Validate API key configuration
+- Show appropriate error messages for invalid states
+
+### 4. User Experience
+- Auto-focus on input textarea when popup opens
+- Auto-resize textareas based on content
+- Smooth transitions and animations (0.2s ease)
+- Loading states with visual feedback
+- Success feedback for copy operations
+
+### 5. Error Handling
+- Graceful error handling for API calls
+- Network error handling with user-friendly messages
+- API key validation and configuration errors
+- Invalid response format handling
+- Console logging for debugging
+- Fallback behaviors for failed operations
+
+### 6. Accessibility
+- Proper label associations for form elements
+- Keyboard navigation support
+- High contrast colors for readability
+- Focus indicators for interactive elements
+
+### 7. Performance
+- Minimal DOM manipulation
+- Efficient event handling
+- Debounced operations where appropriate
+- Lightweight CSS animations
+
+### 8. Browser Compatibility
+- Chrome Extension Manifest V3
+- Modern CSS features with fallbacks
+- ES6+ JavaScript features (async/await, fetch API)
+- Cross-platform compatibility
+- OpenAI API permissions required
+
+## File Structure Rules
+- All files in root directory for easy loading
+- Separate CSS file for maintainability
+- Modular JavaScript structure
+- Semantic HTML structure
+- Proper file naming conventions
+
+## Security Rules
+- Secure API key storage in config.js
+- HTTPS-only API calls to OpenAI
+- Required permissions for OpenAI API access
+- No user data storage
+- Input sanitization for display
+- API key validation before making requests
+
+## Future Enhancement Rules
+- API integration should maintain current UI/UX
+- Settings should be minimal and non-intrusive
+- Performance should remain fast and responsive
+- Backward compatibility with existing functionality

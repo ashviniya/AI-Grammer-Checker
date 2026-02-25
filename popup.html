@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Grammar Checker Extension</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Grammar Checker</h1>
+            <p class="subtitle">Check and improve your text grammar</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <label for="incorrectText">Incorrect Text:</label>
+                <textarea 
+                    id="incorrectText" 
+                    placeholder="Enter your text with grammar errors here..."
+                    rows="4"
+                ></textarea>
+            </div>
+
+            <div class="button-section">
+                <button id="checkGrammar" class="primary-btn">
+                    <span class="btn-text">Check Grammar</span>
+                    <span class="btn-loader" style="display: none;">Checking...</span>
+                </button>
+            </div>
+
+            <div class="output-section">
+                <label for="correctedText">Corrected Text:</label>
+                <textarea 
+                    id="correctedText" 
+                    placeholder="Corrected text will appear here..."
+                    rows="4"
+                    readonly
+                ></textarea>
+            </div>
+
+            <div class="action-buttons">
+                <button id="copyText" class="secondary-btn" disabled>
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copy
+                </button>
+                <button id="clearText" class="secondary-btn">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="3,6 5,6 21,6"></polyline>
+                        <path d="M19,6v14a2,2 0 0,1 -2,2H7a2,2 0 0,1 -2,-2V6m3,0V4a2,2 0 0,1 2,-2h4a2,2 0 0,1 2,2v2"></path>
+                    </svg>
+                    Clear
+                </button>
+            </div>
+        </main>
+
+        <footer>
+            <p class="footer-text">Powered by AI Grammar Checker</p>
+        </footer>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="rules.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

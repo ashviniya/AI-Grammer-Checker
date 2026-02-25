@@ -1,0 +1,222 @@
+AI Grammar Checker Extension - Installation & Usage Instructions
+===============================================================
+
+## Installation Instructions
+
+### Method 1: Load as Unpacked Extension (Recommended for Development)
+
+1. **Download/Clone the Extension**
+   - Download the complete `ai-grammar-checker-extension` folder
+   - Ensure all files are present:
+     - manifest.json
+     - popup.html
+     - popup.js
+     - config.js
+     - style.css
+     - rules/rules.txt
+     - instructions/instructions.txt
+
+2. **Configure OpenAI API Key**
+   - Open the `config.js` file
+   - Replace `'your-openai-api-key-here'` with your actual OpenAI API key
+   - Get your API key from: https://platform.openai.com/api-keys
+   - Example: `OPENAI_API_KEY: 'sk-1234567890abcdef...'`
+
+3. **Open Chrome Extensions Page**
+   - Open Google Chrome browser
+   - Navigate to `chrome://extensions/`
+   - Or go to Chrome Menu → More Tools → Extensions
+
+4. **Enable Developer Mode**
+   - Toggle the "Developer mode" switch in the top-right corner
+   - This enables the "Load unpacked" button
+
+5. **Load the Extension**
+   - Click the "Load unpacked" button
+   - Navigate to and select the `ai-grammar-checker-extension` folder
+   - Click "Select Folder"
+
+6. **Verify Installation**
+   - The extension should appear in your extensions list
+   - You should see the AI Grammar Checker icon in your Chrome toolbar
+   - The extension is now ready to use!
+
+### Method 2: Pack and Install (For Distribution)
+
+1. **Pack the Extension**
+   - On the Chrome Extensions page, click "Pack extension"
+   - Select the `ai-grammar-checker-extension` folder as the extension root directory
+   - Click "Pack Extension"
+   - This creates a `.crx` file
+
+2. **Install the Packed Extension**
+   - Drag and drop the `.crx` file onto the Chrome Extensions page
+   - Click "Add extension" when prompted
+
+## API Key Setup
+
+### Getting Your OpenAI API Key
+
+1. **Create OpenAI Account**
+   - Go to https://platform.openai.com/
+   - Sign up or log in to your account
+
+2. **Generate API Key**
+   - Navigate to https://platform.openai.com/api-keys
+   - Click "Create new secret key"
+   - Give it a name (e.g., "Grammar Checker Extension")
+   - Copy the generated key (starts with `sk-`)
+
+3. **Configure the Extension**
+   - Open `config.js` in the extension folder
+   - Replace `'your-openai-api-key-here'` with your actual API key
+   - Save the file
+   - Reload the extension in Chrome
+
+### Testing the Extension
+
+1. **Test Basic Functionality**
+   - Open the extension popup
+   - Type: "i am go to school"
+   - Click "Check Grammar"
+   - Should return: "I am going to school."
+
+2. **Test Error Handling**
+   - Try with an invalid API key to see error messages
+   - Test with empty input to see validation
+
+3. **Test Different Text Types**
+   - Try sentences with spelling errors
+   - Try paragraphs with multiple grammar issues
+   - Test punctuation and capitalization
+
+## Usage Instructions
+
+### Basic Usage
+
+1. **Open the Extension**
+   - Click the AI Grammar Checker icon in your Chrome toolbar
+   - The popup window will open
+
+2. **Input Text**
+   - Type or paste your text with grammar errors in the "Incorrect Text" field
+   - The textarea will auto-resize as you type
+
+3. **Check Grammar**
+   - Click the blue "Check Grammar" button
+   - Wait for the processing (loading animation will show)
+   - The corrected text will appear in the "Corrected Text" field
+
+4. **Copy Corrected Text**
+   - Click the "Copy" button to copy the corrected text to your clipboard
+   - You'll see a confirmation message "Copied!" briefly
+
+5. **Clear Fields**
+   - Click the "Clear" button to reset both text fields
+   - The input field will be focused automatically
+
+### Features
+
+#### Grammar Checking
+- **Mock Corrections**: Predefined fixes for common grammar errors
+- **Basic Rules**: Automatic capitalization, punctuation, and contractions
+- **Smart Detection**: Recognizes common mistakes and applies appropriate fixes
+
+#### User Interface
+- **Clean Design**: Modern, minimal interface with white background
+- **Responsive**: Adapts to different screen sizes
+- **Visual Feedback**: Loading states, hover effects, and success confirmations
+- **Auto-resize**: Text areas adjust height based on content
+
+#### Keyboard Shortcuts
+- **Tab**: Navigate between elements
+- **Enter**: Submit form (when focused on input)
+- **Ctrl+A**: Select all text in focused textarea
+- **Ctrl+C**: Copy selected text
+- **Ctrl+V**: Paste text
+
+### Example Usage Scenarios
+
+#### Scenario 1: Quick Grammar Check
+1. Open extension
+2. Type: "i am go to school"
+3. Click "Check Grammar"
+4. Result: "I am going to school."
+5. Click "Copy" to use the corrected text
+
+#### Scenario 2: Document Review
+1. Copy text from a document
+2. Paste into the extension
+3. Check grammar
+4. Copy corrected version back to your document
+
+#### Scenario 3: Learning Tool
+1. Practice writing sentences with intentional errors
+2. Use the extension to see corrections
+3. Learn from the differences
+
+### Troubleshooting
+
+#### Extension Not Loading
+- Ensure all files are present in the folder
+- Check that manifest.json is valid JSON
+- Verify Developer Mode is enabled
+- Try refreshing the extensions page
+
+#### Grammar Check Not Working
+- Ensure text is entered in the input field
+- Check browser console for errors (F12 → Console)
+- Verify popup.js is loading correctly
+
+#### Copy Function Not Working
+- Ensure clipboard permissions are granted
+- Try refreshing the extension
+- Check if browser supports clipboard API
+
+#### UI Issues
+- Clear browser cache
+- Reload the extension
+- Check if style.css is loading properly
+
+### Permissions Explained
+
+- **https://api.openai.com/***: Allows the extension to make API calls to OpenAI's servers for grammar checking
+- **Copy functionality**: Uses browser's built-in copy command (execCommand)
+
+### Browser Compatibility
+
+- **Chrome**: Full support (recommended)
+- **Edge**: Should work (Chromium-based)
+- **Firefox**: Not compatible (different extension format)
+- **Safari**: Not compatible (different extension format)
+
+### Development Notes
+
+- Extension uses Manifest V3
+- No external API calls (mock implementation)
+- All processing happens locally
+- No user data is stored or transmitted
+
+### Future Enhancements
+
+- Real AI API integration
+- Multiple language support
+- Grammar suggestions and explanations
+- Settings for customization
+- History of checked texts
+- Export/import functionality
+
+## Support
+
+For issues or questions:
+1. Check this instructions file first
+2. Review the rules.txt file for technical details
+3. Check browser console for error messages
+4. Ensure all files are present and properly formatted
+
+## Version Information
+
+- Version: 1.0.0
+- Manifest Version: 3
+- Last Updated: October 2025
+- Compatible with: Chrome 88+
